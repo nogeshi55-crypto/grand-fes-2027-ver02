@@ -1,1 +1,0 @@
-# grand-fes-2027-ver02
