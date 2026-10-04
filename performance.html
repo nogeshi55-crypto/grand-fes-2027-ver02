@@ -1,0 +1,1844 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>演技項目 | GRAND FES 2027</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+    rel="stylesheet">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23080809'/%3E%3Cpath d='m8 48 16-32h32L40 48H8Zm13-7h14l8-18H30L21 41Z' fill='%23d7a74b'/%3E%3Cpath d='M10 54h44' stroke='%23ed2938' stroke-width='5'/%3E%3C/svg%3E">
+
+
+  <style>
+
+    :root {
+      --ink:#080809;
+      --char:#121114;
+      --cream:#f8f5ec;
+      --gold:#eccb83;
+      --gold-deep:#a8732d;
+      --red:#ed2938;
+      --muted:#bab4ae;
+      --line:#ffffff2b;
+    }
+
+    * {
+      box-sizing:border-box;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      margin:0;
+
+      background:
+        radial-gradient(
+          circle at 82% 18%,
+          #3b0c16,
+          transparent 34%
+        ),
+        #080809;
+
+      color:var(--cream);
+
+      font-family:
+        'Noto Sans JP',
+        sans-serif;
+
+      line-height:1.8;
+
+      overflow-x:hidden;
+    }
+
+    a {
+      color:inherit;
+    }
+
+
+    /* =========================
+   HEADER
+========================= */
+
+.topbar {
+  position:fixed;
+  z-index:100;
+  top:0;
+  left:0;
+  right:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:20px 40px;
+
+  border-bottom:1px solid #ffffff3a;
+
+  background:#080809a8;
+  backdrop-filter:blur(16px);
+
+  transition:background .25s,border-color .25s;
+}
+
+.brand {
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;
+  font-size:1.7rem;
+  line-height:1;
+  letter-spacing:-.025em;
+
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.brand em {
+  font-style:normal;
+  color:var(--gold);
+}
+
+.topbar nav {
+  display:flex;
+  align-items:center;
+  gap:2.4rem;
+}
+
+.topbar nav a {
+  position:relative;
+
+  margin:0;
+  padding:0;
+
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.08em;
+
+  text-decoration:none;
+  white-space:nowrap;
+
+  transition:color .2s;
+}
+
+.topbar nav a:hover,
+.topbar nav a:focus-visible {
+  color:var(--gold);
+}
+
+.topbar nav a:after {
+  content:'';
+
+  position:absolute;
+  left:0;
+  right:100%;
+  bottom:-8px;
+
+  height:2px;
+
+  background:var(--red);
+
+  transition:right .25s;
+}
+
+.topbar nav a:hover:after,
+.topbar nav a:focus-visible:after {
+  right:0;
+}
+
+
+    /* =========================
+       共通
+    ========================= */
+
+    .wrap {
+      width:min(1180px,calc(100% - 80px));
+      margin-inline:auto;
+
+      position:relative;
+      z-index:1;
+    }
+
+    .eyebrow {
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size:.85rem;
+
+      font-weight:800;
+
+      letter-spacing:.3em;
+
+      color:var(--gold);
+
+      text-transform:uppercase;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .performance-hero {
+      position:relative;
+
+      min-height:70svh;
+
+      display:flex;
+      align-items:flex-end;
+
+      padding:150px 0 100px;
+
+      overflow:hidden;
+
+      border-bottom:1px solid #e6c08155;
+    }
+
+    .performance-hero::before {
+      content:'PERFORMANCE';
+
+      position:absolute;
+
+      right:-.05em;
+      bottom:-.12em;
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size:
+        clamp(
+          9rem,
+          25vw,
+          27rem
+        );
+
+      font-weight:900;
+
+      line-height:1;
+
+      color:#ffffff05;
+
+      pointer-events:none;
+    }
+
+    .performance-hero h1 {
+      margin:22px 0 0;
+
+      font-family:
+        'Barlow Condensed',
+        'Noto Sans JP',
+        sans-serif;
+
+      font-size:
+        clamp(
+          3.8rem,
+          9vw,
+          8rem
+        );
+
+      font-weight:900;
+
+      line-height:.95;
+
+      letter-spacing:-.04em;
+    }
+
+    .performance-hero h1 span {
+      color:var(--gold);
+    }
+
+    .hero-copy {
+      max-width:700px;
+
+      margin-top:30px;
+
+      color:#d7d0c8;
+
+      font-size:
+        clamp(
+          .98rem,
+          1.8vw,
+          1.2rem
+        );
+
+      line-height:2;
+    }
+
+
+    /* =========================
+       LEVEL NAV
+    ========================= */
+
+    .level-nav-section {
+      padding:75px 0 20px;
+    }
+
+    .level-nav {
+      display:grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap:3px;
+
+      background:#3a2116;
+    }
+
+    .level-nav a {
+      display:flex;
+
+      align-items:center;
+      justify-content:center;
+
+      min-height:80px;
+
+      background:#171013;
+
+      color:var(--cream);
+
+      text-decoration:none;
+
+      font-family:
+        'Barlow Condensed',
+        'Noto Sans JP',
+        sans-serif;
+
+      font-size:1.2rem;
+
+      font-weight:900;
+
+      transition:
+        background .2s,
+        color .2s,
+        transform .2s;
+    }
+
+    .level-nav a:hover {
+      background:#64121f;
+      color:var(--gold);
+
+      transform:translateY(-3px);
+    }
+
+
+    /* =========================
+       PERFORMANCE LEVEL
+    ========================= */
+
+    .performance-section {
+      position:relative;
+
+      padding:100px 0;
+
+      overflow:hidden;
+    }
+
+    .performance-section + .performance-section {
+      border-top:1px solid #ffffff17;
+    }
+
+    .performance-section::before {
+      content:attr(data-letter);
+
+      position:absolute;
+
+      right:-.04em;
+      bottom:-.28em;
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size:
+        clamp(
+          17rem,
+          40vw,
+          40rem
+        );
+
+      font-weight:900;
+
+      line-height:1;
+
+      color:#ffffff04;
+
+      pointer-events:none;
+    }
+
+
+    /* =========================
+       LEVEL HEADER
+    ========================= */
+
+    .level-heading {
+      display:flex;
+
+      align-items:flex-end;
+
+      gap:25px;
+
+      margin-bottom:45px;
+    }
+
+    .level-letter {
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size:
+        clamp(
+          6rem,
+          13vw,
+          11rem
+        );
+
+      font-weight:900;
+
+      font-style:italic;
+
+      line-height:.75;
+
+      color:var(--gold);
+
+      text-shadow:
+        5px 6px 0 #8f1723;
+    }
+
+    .level-heading h2 {
+      margin:0;
+
+      font-size:
+        clamp(
+          1.8rem,
+          4vw,
+          3rem
+        );
+
+      line-height:1.2;
+    }
+
+    .level-heading p {
+      margin:8px 0 0;
+
+      color:var(--muted);
+    }
+
+
+    /* =========================
+       ITEMS
+    ========================= */
+
+ .performance-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+  align-items:stretch;
+}
+
+    .performance-card {
+  position:relative;
+
+  display:flex;
+  flex-direction:column;
+
+  min-height:100%;
+
+  padding:28px;
+
+  border-top:3px solid var(--gold);
+  border-bottom:1px solid #e6c08145;
+
+  background:
+    linear-gradient(
+      145deg,
+      #191116,
+      #0d0c0e
+    );
+
+  overflow:hidden;
+}
+
+    .performance-card:hover {
+      transform:translateY(-5px);
+
+      background:
+        linear-gradient(
+          145deg,
+          #2e1118,
+          #110d10
+        );
+
+      box-shadow:
+        12px 14px 0
+        #ed29381b;
+    }
+
+    .performance-card .number {
+      display:block;
+
+      margin-bottom:18px;
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size:.82rem;
+
+      font-weight:800;
+
+      letter-spacing:.2em;
+
+      color:var(--red);
+    }
+
+    .performance-card h3 {
+      margin:0 0 12px;
+
+      font-size:
+        1.25rem;
+    }
+
+    .performance-card p {
+      margin:0;
+
+      color:#d7cec5;
+
+      font-size:.92rem;
+
+      line-height:1.8;
+    }
+
+.performance-card p {
+  margin:0;
+  color:#d7cec5;
+  font-size:.92rem;
+  line-height:1.8;
+}
+
+
+/* 技一覧 */
+
+.skill-list {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  row-gap:14px;
+  margin-top:20px;
+
+  width:100%;
+  max-width:100%;
+}
+
+.skill-list span {
+  display:flex;
+  align-items:flex-end;
+  gap:7px;
+
+
+flex:0 0 auto;
+
+  padding:10px 13px 8px;
+
+  background:#241015;
+  border:1px solid #e6c08155;
+  border-left:3px solid var(--gold);
+
+  color:#fff4df;
+  font-size:.9rem;
+  font-weight:800;
+  line-height:1.2;
+
+  white-space:nowrap;
+  word-break:keep-all;
+}
+.skill-list span b {
+  flex-shrink:0;
+
+  color:var(--gold);
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:1.15rem;
+  font-weight:900;
+}
+
+.skill-list i {
+  flex:0 0 auto;
+
+  color:var(--gold);
+  font-size:1.2rem;
+  font-style:normal;
+  font-weight:900;
+}
+
+.skill-list ruby {
+  white-space:nowrap;
+  word-break:keep-all;
+  ruby-position:over;
+}
+
+.skill-list rt {
+  white-space:nowrap;
+  font-size:.55rem;
+  font-weight:700;
+  color:#d9b96f;
+}
+
+/* 模範演技動画 */
+
+.demo-video {
+  margin-top:auto;
+  padding-top:28px;
+}
+
+.performance-card p {
+  margin:0;
+  color:#d7cec5;
+  font-size:.92rem;
+  line-height:1.8;
+}
+
+
+/* 模範演技動画 */
+
+.demo-video {
+  margin-top:24px;
+}
+
+.video-title {
+  margin-bottom:10px;
+  font-size:.8rem;
+  font-weight:900;
+  letter-spacing:.08em;
+  color:var(--gold);
+}
+
+.video-frame {
+  width:min(100%, 520px);
+  aspect-ratio:16 / 9;
+
+  margin-top:8px;
+
+  overflow:hidden;
+  background:#000;
+
+  border:1px solid #e6c08145;
+}
+
+.video-frame video {
+  width:100%;
+  height:100%;
+
+  display:block;
+
+  object-fit:contain;
+
+  background:#000;
+}
+    .performance-card .score {
+      display:inline-block;
+
+      margin-top:18px;
+
+      padding:5px 9px;
+
+      border:
+        1px solid #e6c08155;
+
+      color:var(--gold);
+
+      font-family:
+        'Barlow Condensed',
+        sans-serif;
+
+      font-size:.8rem;
+
+      font-weight:800;
+
+      letter-spacing:.08em;
+    }
+
+
+    /* =========================
+       NOTE
+    ========================= */
+
+    .performance-note {
+      margin-top:35px;
+
+      padding:22px 25px;
+
+      border-left:
+        3px solid var(--red);
+
+      background:#160e12;
+
+      color:#cfc5bc;
+
+      font-size:.88rem;
+
+      line-height:1.9;
+    }
+
+
+    /* =========================
+       BACK
+    ========================= */
+
+    .back-area {
+      padding:40px 20px 120px;
+
+      text-align:center;
+    }
+
+    .back-link {
+      display:inline-block;
+
+      padding:13px 22px;
+
+      border:1px solid var(--gold);
+
+      color:var(--gold);
+
+      font-size:.85rem;
+
+      font-weight:900;
+
+      text-decoration:none;
+
+      transition:
+        background .2s,
+        color .2s,
+        transform .2s;
+    }
+
+    .back-link:hover {
+      background:var(--gold);
+      color:#160b0e;
+
+      transform:translateY(-2px);
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      display:flex;
+
+      justify-content:space-between;
+
+      gap:1rem;
+
+      padding:24px 40px;
+
+      border-top:1px solid #ffffff1f;
+
+      background:#070709;
+
+      color:#a99f96;
+
+      font-size:.78rem;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:850px) {
+
+      .performance-grid {
+        grid-template-columns:
+          repeat(2,minmax(0,1fr));
+      }
+ }
+
+    @media(max-width:760px){
+
+ .topbar{
+  padding:15px 18px;
+}
+
+.brand{
+  font-size:1.38rem;
+}
+
+.topbar nav{
+  gap:.65rem;
+}
+
+.topbar nav a{
+  font-size:.8rem;
+  letter-spacing:0;
+}
+
+  .wrap {
+    width:calc(100% - 36px);
+  }
+
+  .performance-hero {
+    min-height:65svh;
+    padding:120px 0 70px;
+  }
+
+  .level-nav {
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .performance-section {
+    padding:80px 0;
+  }
+
+  .performance-grid {
+    grid-template-columns:1fr;
+  }
+
+  .level-heading {
+    align-items:center;
+  }
+
+  .level-letter {
+    font-size:6rem;
+  }
+
+  .skill-list{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+    margin-top:20px;
+  }
+
+  .skill-list span{
+    width:100%;
+    min-width:0;
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-start;
+    padding:12px 10px;
+    font-size:.82rem;
+    white-space:nowrap;
+  }
+
+  .skill-list span b{
+    font-size:1rem;
+  }
+
+  .skill-list i{
+    display:none;
+  }
+
+  footer {
+    padding:20px 18px;
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+@media(max-width:420px){
+  .topbar .brand{
+    font-size:1.28rem;
+  }
+
+  .topbar nav{
+    display:grid;
+    grid-template-columns:repeat(2,auto);
+    gap:0 1rem;
+    align-items:center;
+  }
+
+  .topbar nav a{
+    font-size:.75rem;
+    line-height:1.45;
+  }
+
+  .topbar nav a:after{
+    bottom:-2px;
+  }
+}
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+ <header class="topbar">
+
+  <a class="brand" href="index.html">
+    GRAND <em>FES</em>
+  </a>
+
+  <nav>
+    <a href="index.html#news">お知らせ</a>
+    <a href="index.html#event">大会概要</a>
+    <a href="index.html#levels">出場レベル</a>
+    <a href="performance.html">演技項目</a>
+    <a href="index.html#simulator">点数を試す</a>
+    <a href="message.html">主催者からのメッセージ</a>
+  </nav>
+
+</header>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="performance-hero">
+
+    <div class="wrap">
+
+      <div class="eyebrow">
+        GRAND FES 2027 / PERFORMANCE
+      </div>
+
+      <h1>
+        演技項目を、<br>
+        <span>確認しよう。</span>
+      </h1>
+
+      <p class="hero-copy">
+        各レベルで挑戦する演技項目を確認できます。
+        自分の出場レベルを選び、
+        本番に向けて演技を準備していきましょう。
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       LEVEL NAVIGATION
+  ========================= -->
+
+  <section class="level-nav-section">
+
+    <div class="wrap">
+
+      <div class="level-nav">
+
+        <a href="#level-a">
+          A LEVEL
+        </a>
+
+        <a href="#level-b">
+          B LEVEL
+        </a>
+
+        <a href="#level-c">
+          C LEVEL
+        </a>
+
+        <a href="#level-d">
+          D LEVEL
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       A LEVEL
+  ========================= -->
+
+  <section
+    class="performance-section"
+    id="level-a"
+    data-letter="A">
+
+    <div class="wrap">
+
+      <div class="level-heading">
+
+        <span class="level-letter">
+          A
+        </span>
+
+        <div>
+          <h2>
+            Aレベル 演技項目
+          </h2>
+
+          <p>
+            バク転・バク宙を一人でできるレベル
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="performance-grid">
+
+  <article class="performance-card">
+
+    <span class="number">
+      PERFORMANCE 01
+    </span>
+
+    <h3>
+      トランポリン
+    </h3>
+
+     <div class="skill-list">
+
+  <span>
+    <b>01</b>
+    スイブルヒップス
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>02</b>
+     <ruby>膝<rt>ひざ</rt></ruby>うちハーフ
+</span>
+
+  <i>→</i>
+
+  <span>
+    <b>03</b>
+    <ruby>尻<rt>しり</rt></ruby>うちハーフ
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>04</b>
+     <ruby>尻<rt>しり</rt></ruby>うちハーフ
+  </span>
+
+  <i>→</i>
+
+  <span>
+
+    <b>05</b>
+1<ruby>回<rt>かい</rt></ruby>ひねりジャンプ
+</span>        
+
+  <i>→</i>
+
+  <span>
+    <b>06</b>
+    <ruby>腹<rt>はら</rt></ruby>うち
+  </span>
+
+<i>→</i>
+
+<span>
+    <b>07</b>
+    グージャンプ
+  </span>
+
+<i>→</i>
+
+<span>
+    <b>08</b>
+    パージャンプ
+  </span>
+
+<i>→</i>
+
+<span>
+    <b>09</b>
+    ローラー
+  </span>
+
+<i>→</i>
+
+<span>
+    <b>10</b>
+    フリー演技
+  </span>
+
+</div>
+
+   <div class="demo-video">
+  <div class="video-title">
+    模範演技動画
+  </div>
+
+  <div class="video-frame">
+    <video controls playsinline preload="metadata">
+      <source src="a-trampoline.mp4" type="video/mp4">
+      お使いのブラウザは動画再生に対応していません。
+    </video>
+  </div>
+</div>
+
+
+  </article>
+
+
+  <article class="performance-card">
+
+    <span class="number">
+      PERFORMANCE 02
+    </span>
+
+    <h3>
+      マット
+    </h3>
+
+     <div class="skill-list">
+
+  <span>
+    <b>01</b>
+    フリー演技
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>02</b>
+    フリー演技
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>03</b>
+    <ruby>
+      倒立前転
+      <rt>とうりつぜんてん</rt>
+    </ruby>
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>04</b>
+    <ruby>
+      側転
+      <rt>そくてん</rt>
+    </ruby>
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>05</b>
+    <ruby>
+      伸膝後転
+      <rt>しんしつこうてん</rt>
+    </ruby>
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>06</b>
+    フリー演技
+  </span>
+
+</div>
+
+
+   <div class="demo-video">
+  <div class="video-title">
+    模範演技動画
+  </div>
+
+  <div class="video-frame">
+    <video controls playsinline preload="metadata">
+      <source src="a-mat.mp4" type="video/mp4">
+      お使いのブラウザは動画再生に対応していません。
+    </video>
+  </div>
+</div>
+
+  </article>
+
+</div>
+
+
+      <div class="performance-note">
+        ※ 演技項目・採点方法・注意事項は、
+        大会ルールに合わせてここへ記載できます。
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       B LEVEL
+  ========================= -->
+
+  <section
+    class="performance-section"
+    id="level-b"
+    data-letter="B">
+
+    <div class="wrap">
+
+      <div class="level-heading">
+
+        <span class="level-letter">
+          B
+        </span>
+
+        <div>
+          <h2>
+            Bレベル 演技項目
+          </h2>
+
+          <p>
+            先生の補助を受けながら
+            バク転に挑戦するレベル
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="performance-grid">
+
+  <article class="performance-card">
+
+    <span class="number">
+      PERFORMANCE 01
+    </span>
+
+    <h3>
+      トランポリン
+    </h3>
+
+     <div class="skill-list">
+
+  <span>
+    <b>01</b>
+     <ruby>腹<rt>はら</rt></ruby>うち
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>02</b>
+    1<ruby>回<rt>かい</rt></ruby>ひねりジャンプ
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>03</b>
+    <ruby>
+     <ruby>尻<rt>しり</rt></ruby>うちハーフ
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>04</b>
+    <ruby>尻<rt>しり</rt></ruby>うちハーフ
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>05</b>
+   <ruby>腹<rt>はら</rt></ruby>うち
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>06</b>
+    グージャンプ
+  </span>
+
+<i>→</i>
+
+   <span>
+    <b>07</b>
+    パージャンプ
+  </span>
+
+<i>→</i>
+
+<span>
+    <b>08</b>
+    ローラー
+  </span>
+
+
+</div>
+
+    <div class="demo-video">
+  <div class="video-title">
+    模範演技動画
+  </div>
+
+  <div class="video-frame">
+    <video controls playsinline preload="metadata">
+      <source src="b-trampoline.mp4" type="video/mp4">
+      お使いのブラウザは動画再生に対応していません。
+    </video>
+  </div>
+</div>
+
+
+  </article>
+
+
+  <article class="performance-card">
+
+    <span class="number">
+      PERFORMANCE 02
+    </span>
+
+    <h3>
+      マット
+    </h3>
+
+     <div class="skill-list">
+
+  <span>
+    <b>01</b>
+    <ruby>
+      側転
+      <rt>そくてん</rt>
+    </ruby>
+
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>02</b>
+    <ruby>
+      倒立前転
+      <rt>とうりつぜんてん</rt>
+    </ruby>
+
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>03</b>
+    <ruby>
+      開脚前転
+      <rt>かいきゃくぜんてん</rt>
+    </ruby>
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>04</b>
+    <ruby>
+      側転
+      <rt>そくてん</rt>
+    </ruby>
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>05</b>
+    <ruby>
+      伸膝後転
+      <rt>しんしつこうてん</rt>
+    </ruby>
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>06</b>
+    <ruby>
+      開脚後転
+      <rt>開脚こうてん</rt>
+    </ruby>
+</span>
+
+<span>
+    <b>07</b>
+    ロンダート～バク転
+  </span>
+
+</div>
+
+
+   <div class="demo-video">
+  <div class="video-title">
+    模範演技動画
+  </div>
+
+  <div class="video-frame">
+    <video controls playsinline preload="metadata">
+      <source src="b-mat.mp4" type="video/mp4">
+      お使いのブラウザは動画再生に対応していません。
+    </video>
+  </div>
+</div>
+
+  </article>
+
+</div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       C LEVEL
+  ========================= -->
+
+  <section
+    class="performance-section"
+    id="level-c"
+    data-letter="C">
+
+    <div class="wrap">
+
+      <div class="level-heading">
+
+        <span class="level-letter">
+          C
+        </span>
+
+        <div>  
+          <h2>
+            Cレベル 演技項目
+          </h2>
+
+          <p>
+            助走からロンダートができるレベル
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="performance-grid">
+
+  <article class="performance-card">
+
+    <span class="number">
+      PERFORMANCE 01
+    </span>
+
+    <h3>
+      トランポリン
+    </h3>
+
+     <div class="skill-list">
+
+  <span>
+    <b>01</b>
+     <ruby>尻<rt>しり</rt></ruby>うち
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>02</b>
+       <ruby>尻<rt>しり</rt></ruby>うち
+</span>
+
+  <i>→</i>
+
+  <span>
+    <b>03</b>
+    1<ruby>回<rt>かい</rt></ruby>ひねりジャンプ
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>04</b>
+     グージャンプ
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>05</b>
+パージャンプ
+ </span>
+
+  <i>→</i>
+
+  <span>
+    <b>06</b>
+     <ruby>腹<rt>はら</rt></ruby>うち
+  </span>
+
+
+</div>
+
+
+    <div class="demo-video">
+  <div class="video-title">
+    模範演技動画
+  </div>
+
+  <div class="video-frame">
+    <video controls playsinline preload="metadata">
+      <source src="c-trampoline.mp4" type="video/mp4">
+      お使いのブラウザは動画再生に対応していません。
+    </video>
+  </div>
+</div>
+
+
+  </article>
+
+
+  <article class="performance-card">
+
+    <span class="number">
+      PERFORMANCE 02
+    </span>
+
+    <h3>
+      マット
+    </h3>
+
+     <div class="skill-list">
+
+  <span>
+    <b>01</b>
+    <ruby>
+      側転
+      <rt>そくてん</rt>
+    </ruby>
+
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>02</b>
+    <ruby>
+      前転
+      <rt>ぜんてん</rt>
+    </ruby>
+
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>03</b>
+    <ruby>
+      開脚前転
+      <rt>かいきゃくぜんてん</rt>
+    </ruby>
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>04</b>
+    <ruby>
+      側転
+      <rt>そくてん</rt>
+    </ruby>
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>05</b>
+    <ruby>
+      後転
+      <rt>こうてん</rt>
+    </ruby>
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>06</b>
+     <ruby>
+      開脚後転
+      <rt>かいきゃくこうてん</rt>
+    </ruby>
+
+  </span>
+
+</div>
+
+
+    <div class="demo-video">
+  <div class="video-title">
+    模範演技動画
+  </div>
+
+  <div class="video-frame">
+    <video controls playsinline preload="metadata">
+      <source src="c-mat.mp4" type="video/mp4">
+      お使いのブラウザは動画再生に対応していません。
+    </video>
+  </div>
+</div>
+
+  </article>
+
+</div>
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       D LEVEL
+  ========================= -->
+
+  <section
+    class="performance-section"
+    id="level-d"
+    data-letter="D">
+
+    <div class="wrap">
+
+      <div class="level-heading">
+
+        <span class="level-letter">
+          D
+        </span>
+
+        <div>
+          <h2>
+            Dレベル 演技項目
+          </h2>
+
+          <p>
+            体操を始めたばかりの方向けのレベル
+          </p>
+
+        </div>
+
+      </div>
+
+
+     <div class="performance-grid">
+
+  <article class="performance-card">
+
+    <span class="number">
+      PERFORMANCE 01
+    </span>
+
+    <h3>
+      トランポリン
+    </h3>
+
+     <div class="skill-list">
+
+  <span>
+    <b>01</b>
+    グージャンプ
+
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>02</b>
+    パージャンプ
+
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>03</b>
+    <ruby>尻<rt>しり</rt></ruby>うち
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>04</b>
+    <ruby>尻<rt>しり</rt></ruby>うち
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>05</b>
+    グージャンプ
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>06</b>
+    パージャンプ
+  </span>
+
+<i>→</i>
+
+  <span>
+    <b>07</b>
+    1<ruby>回<rt>かい</rt></ruby>ひねりジャンプ
+
+  </span>
+
+</div>
+
+
+    <div class="demo-video">
+  <div class="video-title">
+    模範演技動画
+  </div>
+
+  <div class="video-frame">
+    <video controls playsinline preload="metadata">
+      <source src="d-trampoline.mp4" type="video/mp4">
+      お使いのブラウザは動画再生に対応していません。
+    </video>
+  </div>
+</div>
+
+  </article>
+
+
+  <article class="performance-card">
+
+    <span class="number">
+      PERFORMANCE 02
+    </span>
+
+    <h3>
+      マット
+    </h3>
+
+     <div class="skill-list">
+
+  <span>
+    <b>01</b>
+    <ruby>
+      前転
+      <rt>ぜんてん</rt>
+    </ruby>
+
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>02</b>
+    1<ruby>回<rt>かい</rt></ruby>ひねりジャンプ
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>03</b>
+    <ruby>水平<rt>すいへい</rt></ruby>バランス
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>04</b>
+    <ruby>
+      前転
+      <rt>ぜんてん</rt>
+    </ruby>
+
+  </span>
+
+  <i>→</i>
+
+  <span>
+    <b>05</b>
+    <ruby>
+      開脚前転
+      <rt>かいきゃくぜんてん</rt>
+    </ruby>
+
+  </span>
+
+
+</div>
+
+
+   <div class="demo-video">
+  <div class="video-title">
+    模範演技動画
+  </div>
+
+  <div class="video-frame">
+    <video controls playsinline preload="metadata">
+      <source src="d-mat.mp4" type="video/mp4">
+      お使いのブラウザは動画再生に対応していません。
+    </video>
+  </div>
+</div>
+
+  </article>
+
+</div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       BACK
+  ========================= -->
+
+  <div class="back-area">
+
+    <a
+      class="back-link"
+      href="index.html">
+
+      ← GRAND FES 2027 TOPへ戻る
+
+    </a>
+
+  </div>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <span>
+      GRAND FES 2027
+    </span>
+
+    <span>
+      2027.01.31 / 大宮体育館
+    </span>
+
+  </footer>
+
+
+</body>
+
+</html>
